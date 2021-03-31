@@ -1,5 +1,6 @@
-// import logo from './logo.svg';
-import React, { useState, createContext, useContext } from 'react';
+
+// import React, { useState, createContext, useContext } from 'react';
+import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ItemForm from './components/Item';
@@ -8,9 +9,9 @@ import ItemForm from './components/Item';
 import './App.css';
 
 
-const ProductContext = createContext();
-const NewUserContext = createContext();  
-const UserContext = createContext();
+// const ProductContext = createContext();
+// const NewUserContext = createContext();  
+// const UserContext = createContext();
 
 const sampleProduct = {
   id: 0,
@@ -24,9 +25,9 @@ const sampleProduct = {
 };
 
 const App = () => {
-  const [product, setProduct] = useState(); //Item data
-  const [newUser, setNewUser] = useState(); // newUserForm
-  const [user, setUser] = useState(); //Login 
+  // const [product, setProduct] = useState(); //Item data
+  // const [newUser, setNewUser] = useState(); // newUserForm
+  // const [user, setUser] = useState(); //Login 
   return (
     <div className="App">
 
