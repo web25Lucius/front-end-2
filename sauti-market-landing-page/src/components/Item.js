@@ -29,9 +29,9 @@ const ItemForm = () => {
       axiosWithAuth()
       .post("https://buildweeksautimarket.herokuapp.com/api/auth/product", itemFormValues)
 
-      .then(response => {console.log("response: ", response)})
+      .then(response => {console.log("post item axios response: " + response)})
 
-      .catch(err => { console.log(err) });
+      .catch(err => { console.log("post item axios error: "+ err) });
   
       }
         // console.log(item);
@@ -44,7 +44,7 @@ const ItemForm = () => {
               <div className='itemForm-container'>
               <form className='itemForm' onSubmit={onFormSubmit}>
                   <div className='itemForm-title'>
-                    <h1 >Add products</h1>
+                    <h1 >Inventory</h1>
                     <h2>Welcome Merchant!</h2>
                     <p>Fill in form and click submit to add new products to sell on Sauti Market.</p>
                   </div>

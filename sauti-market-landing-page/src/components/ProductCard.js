@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 // import './classes.css';
 import { useHistory, useParams} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,12 +32,20 @@ const useStyles = makeStyles({
 }); // material UI styles
 
 
-export default function ProductCard ({product}) {
+const ProductCard = () => {
   
   // destructured keys from the product obj passed as props
-  let { id, productName, country, market, price,description, isPurchased, merchantId } = product;
+  const [product, setProduct] = useState({ 
+    id: 0, 
+    product_id: 0,
+    seller_id: 0,
+    seller_price: 0, 
+    qty: 0,
+    description:""
+  });
+  
 
-  // let { productID } = useParams();
+  // let { product_id } = useParams();
   // console.log("classId from Class: ", classId); // gets the classId, A STRING
 
   // LOGIC NOTE: only one prop will be defined
@@ -71,20 +79,20 @@ export default function ProductCard ({product}) {
         </div>
       : <br/> /* conditional rendering for classCard*/  } 
 
-      <Card classname="indivCard" className={classes.root} variant="outlined" onClick={(evt) => history.push(`/classes/${id}`)} >
+      <Card classname="indivCard" className={classes.root} variant="outlined" onClick={(evt) => history.push(`api/auth/market/`)} >
       <CardContent style={{textAlign: "center"}}>
       {/* // {isClassCard ? <button>Logout</button> : <button>Login</button>} */}
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {country} - {market} Market
+        Sauti Market logo
         </Typography>
         <Typography variant="h5" component="h2">
-          {bull} {productName} {bull}
+          {bull} {product.description} product descrption/name of product {bull}
         </Typography>
         <Typography className={classes.pos} color="textSecondary"><br/>
-        {description}
+        {product.qty} Available
         </Typography>
         <Typography variant="body2" component="p">
-          R{price} (South African Rand / ZAR)<br/>
+          Price: {product.seller_price} <br/>
         <br/>
         </Typography>
       </CardContent>
@@ -100,3 +108,5 @@ export default function ProductCard ({product}) {
     </>
   )
 };
+
+export default ProductCard;
