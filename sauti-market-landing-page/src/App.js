@@ -1,6 +1,16 @@
-import logo from './logo.svg';
-import ProductCard from './components/ProductCard';
+// import logo from './logo.svg';
+import React, { useState, createContext, useContext } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import ItemForm from './components/Item';
+
+
 import './App.css';
+
+
+const ProductContext = createContext();
+const NewUserContext = createContext();  
+const UserContext = createContext();
 
 const sampleProduct = {
   id: 0,
@@ -13,38 +23,27 @@ const sampleProduct = {
   merchantId: 0
 };
 
-function App() {
+const App = () => {
+  const [product, setProduct] = useState(); //Item data
+  const [newUser, setNewUser] = useState(); // newUserForm
+  const [user, setUser] = useState(); //Login 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ::Welcome:: to Sauti Market.  
 
-          Landing Page will map product cards to this page (like movielist).  
-           use contextAPI to pull the product card RS is coding
-           this page will connect to login page for both customer and merchant
-                                  to create/edit/delete page for logged in merchants  
-           contain header and footer navigation
+      <header className="App-header"><Header /></header>
+      <header className="App-header"><p>Welcome to Landing Page that will render mapped products</p></header>
 
-         {nameofArr.map(e => {
-           return 
-           <div>  <ProductCard product={sampleProduct}/> </div>
-         })}
+       <ItemForm />
+       <Footer />
+     
 
 
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
     </div>
   );
 }
 
 export default App;
+// use contextAPI to pull the product card RS is coding
+//            this page will connect to login page for both customer and merchant
+//                                   to create/edit/delete page for logged in merchants  
+//            contain header and footer navigation

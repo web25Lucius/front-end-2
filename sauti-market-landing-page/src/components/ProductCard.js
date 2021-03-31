@@ -1,15 +1,15 @@
 
 import React from 'react';
 // import './classes.css';
-// import { useHistory, useParams} from 'react-router-dom';
+import { useHistory, useParams} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-// import Header from './Header';
-// import Footer from './Footer';
+import Header from './Header';
+import Footer from './Footer';
 
 
 const useStyles = makeStyles({
@@ -34,10 +34,10 @@ const useStyles = makeStyles({
 
 export default function ProductCard ({product}) {
   
-  
+  // destructured keys from the product obj passed as props
   let { id, productName, country, market, price,description, isPurchased, merchantId } = product;
 
-  let { productID } = useParams();
+  // let { productID } = useParams();
   // console.log("classId from Class: ", classId); // gets the classId, A STRING
 
   // LOGIC NOTE: only one prop will be defined
@@ -61,12 +61,17 @@ export default function ProductCard ({product}) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
-  const history = useHistory(); 
-  // enables onClick on productCard --> route to productCard by ID
+  const history = useHistory(); // enables onClick on productCard --> route to productCard by ID
 
   return (
     <>
-      <Card classname="indivCard" className={classes.root} variant="outlined" >
+      {/* {!isClassCard ? 
+        <div>
+          <Header/>
+        </div>
+      : <br/> /* conditional rendering for classCard*/  } 
+
+      <Card classname="indivCard" className={classes.root} variant="outlined" onClick={(evt) => history.push(`/classes/${id}`)} >
       <CardContent style={{textAlign: "center"}}>
       {/* // {isClassCard ? <button>Logout</button> : <button>Login</button>} */}
         <Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -87,6 +92,11 @@ export default function ProductCard ({product}) {
         <Button size="small">Edit</Button>
       </CardActions>
     </Card>
+    {/* {!isClassCard ? 
+      <div>
+        <Footer/>
+      </div>
+    : <br/> /* conditional rendering for classCard*/  } 
     </>
   )
 };
