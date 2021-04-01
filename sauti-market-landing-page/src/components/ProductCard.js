@@ -36,15 +36,7 @@ const useStyles = makeStyles({
 const ProductCard = () => {
   const product = useContext(ProductContext);
   
-  // const [product, setProduct] = useState({ 
-  //   id: 0, 
-  //   product_id: 0,
-  //   seller_id: 0,
-  //   seller_price: 0, 
-  //   qty: 0,
-  //   description:""
-  // });
-  
+
 
   // let { product_id } = useParams();
   // console.log("classId from Class: ", classId); // gets the classId, A STRING
@@ -84,16 +76,16 @@ const ProductCard = () => {
       <CardContent style={{textAlign: "center"}}>
       {/* // {isClassCard ? <button>Logout</button> : <button>Login</button>} */}
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-        Sauti Market logo
+        Sauti Market location: {product.location}
         </Typography>
         <Typography variant="h5" component="h2">
-          {bull} {product.description} product descrption/name of product {bull}
+          {bull} product_name: {product.product_name} {bull}
         </Typography>
         <Typography className={classes.pos} color="textSecondary"><br/>
-        {product.qty} Available
+         description: {product.description}
         </Typography>
         <Typography variant="body2" component="p">
-          Price: {product.seller_price} <br/>
+        price: {product.seller_price}  <br /> qty available: {product.qty}   <br/>
         <br/>
         </Typography>
       </CardContent>

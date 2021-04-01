@@ -18,11 +18,13 @@ export const ProductContext = createContext();
 export const App = () => {
   const [product, setProduct] = useState({ 
     id: 0, 
-    product_id: 0,
+    product_name: "",
     seller_id: 0,
     seller_price: 0, 
     qty: 0,
-    description:""
+    description:"", 
+    seller_name: "",
+    location: ""
   });
   console.log(ProductContext);
   // const [newUser, setNewUser] = useState(); // newUserForm
