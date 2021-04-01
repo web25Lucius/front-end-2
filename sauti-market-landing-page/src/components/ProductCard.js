@@ -1,15 +1,16 @@
 
-import React, {useState} from 'react';
-// import './classes.css';
-import { useHistory, useParams} from 'react-router-dom';
+import React, {useContext} from 'react';
+import {ProductContext} from '../App';
+
+// import { useHistory, useParams} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Header from './Header';
-import Footer from './Footer';
+
 
 
 const useStyles = makeStyles({
@@ -33,16 +34,16 @@ const useStyles = makeStyles({
 
 
 const ProductCard = () => {
+  const product = useContext(ProductContext);
   
-  // destructured keys from the product obj passed as props
-  const [product, setProduct] = useState({ 
-    id: 0, 
-    product_id: 0,
-    seller_id: 0,
-    seller_price: 0, 
-    qty: 0,
-    description:""
-  });
+  // const [product, setProduct] = useState({ 
+  //   id: 0, 
+  //   product_id: 0,
+  //   seller_id: 0,
+  //   seller_price: 0, 
+  //   qty: 0,
+  //   description:""
+  // });
   
 
   // let { product_id } = useParams();
